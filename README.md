@@ -18,3 +18,6 @@ val bytes = AvroWriter[Pageview].toBytes(p)
 val deserialized = AvroReader[Pageview].fromBytes(bytes)
 p == deserialized //true
 ```
+
+Note that currently sbt-avrohugger puts an incorrect import in the generated Scala file. It uses `com.oysterbooks.scavro` but you have to manually change this to `org.oedura.scavro`.
+I plan to submit an issue to sbt-avrohugger to fix this.
